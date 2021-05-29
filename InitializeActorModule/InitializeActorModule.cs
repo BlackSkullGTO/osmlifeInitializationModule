@@ -70,11 +70,11 @@ namespace InitializeActorModule
         }
         public override void Update(long elapsedMilliseconds)
         {
-            Console.WriteLine("\nActorInitializeModule: Update");
+            //Console.WriteLine("\nActorInitializeModule: Update");
 
             // Снова получаем список акторов
-            var actors = MapObjects.GetAll<Actor>();
-            Console.WriteLine($"Got {actors.Count} actors\n");
+            //var actors = MapObjects.GetAll<Actor>();
+            //Console.WriteLine($"Got {actors.Count} actors\n");
 
             // Для каждого актёра проверяем условия и назначаем новую активность если нужно
             /*foreach (var actor in actors)
