@@ -38,7 +38,6 @@ namespace InitializeActorModule
 
                 Point home = new Point(buildings[random.Next(0, buildings.Count()-1)].Coordinate);
                 Actor actor = new Actor(home.X + offset, home.Y + offset);
-
                 Console.WriteLine($"Home at {home.X}, {home.Y}. Placing an actor at {actor.X}, {actor.Y}");
 
                 Point job = new Point(everything[random.Next(0, everything.Count() - 1)].Coordinate);
@@ -72,6 +71,9 @@ namespace InitializeActorModule
 
                 // Добавляем актора в объекты карты
                 MapObjects.Add(actor);
+
+                Console.WriteLine($"Home at {actor.GetState<PlaceState>().Home.X}, {actor.GetState<PlaceState>().Home.Y}. Placing an actor at {actor.X}, {actor.Y}");
+
             }
         }
         public override void Update(long elapsedMilliseconds)
