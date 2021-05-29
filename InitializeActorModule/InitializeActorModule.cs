@@ -122,11 +122,11 @@ namespace InitializeActorModule
     }
     public class SpecState : IState
     {
-        public int Health;
-        public int Hunger;
-        public int Mood;
-        public int Fatigue;
-        public int Money;
+        public double Health;
+        public double Hunger;
+        public double Mood;
+        public double Fatigue;
+        public double Money;
         public double Speed;
         private Random random = new Random();
 
