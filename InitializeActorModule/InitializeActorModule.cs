@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Collections.Generic;
 
+using NodaTime;
+
 using CityDataExpansionModule;
 using CityDataExpansionModule.OsmGeometries;
 
@@ -24,8 +26,7 @@ namespace InitializeActorModule
             var shops = MapObjects.GetAll<OsmNode>().Where(x => x.Tags.ContainsKey("shop")).ToList();
             var amenities = MapObjects.GetAll<OsmNode>().Where(x => x.Tags.ContainsKey("amenity")).ToList();
 
-            //int count = random.Next(5, 10);
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 3; i++)
             {
                 Console.WriteLine($"Creating an actor {i + 1}...");
 
@@ -39,7 +40,10 @@ namespace InitializeActorModule
                 Console.WriteLine($"Job at {job.X}, {job.Y}");
 
                 SpecState specState = new SpecState();
+                Console.WriteLine($"Specs created. Hunger: {specState.Hunger}, Mood: {specState.Mood}, Fatigue: {specState.Fatigue}");
+
                 PlaceState placeState = new PlaceState(home);
+
                 JobState jobState = new JobState(job);
 
                 var place = buildings[random.Next(0, buildings.Count() - 1)];
@@ -94,6 +98,7 @@ namespace InitializeActorModule
         public JobState(Point job)
         {
             Job = job;
+            JobTimes = new List<TimeInterval>();
             AddJobTime(new TimeInterval(10, 30, 13, 00));
             AddJobTime(new TimeInterval(15, 30, 18, 00));
         }
@@ -169,6 +174,7 @@ namespace InitializeActorModule
         public PlaceState(Point home)
         {
             Home = home;
+            FavoritePlaces = new List<Place>();
         }
         public PlaceState(PlaceState state)
         {
