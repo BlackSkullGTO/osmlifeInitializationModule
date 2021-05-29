@@ -19,23 +19,29 @@ namespace InitializeActorModule
     public class InitializeActorModule: OSMLSModule
     {
         private Random random = new Random();
+        private double radius = 1000;
+        private double offset { get { return random.NextDouble() * 2 * radius - radius; } }
 
         protected override void Initialize()
         {
-            var buildings = MapObjects.GetAll<OsmNode>().Where(x => x.Tags.ContainsKey("building")).ToList();
-            var shops = MapObjects.GetAll<OsmNode>().Where(x => x.Tags.ContainsKey("shop")).ToList();
-            var amenities = MapObjects.GetAll<OsmNode>().Where(x => x.Tags.ContainsKey("amenity")).ToList();
+            List<OsmNode> buildings = MapObjects.GetAll<OsmNode>().Where(x => x.Tags.ContainsKey("building")).ToList();
+            List<OsmNode> shops = MapObjects.GetAll<OsmNode>().Where(x => x.Tags.ContainsKey("shop")).ToList();
+            List<OsmNode> amenities = MapObjects.GetAll<OsmNode>().Where(x => x.Tags.ContainsKey("amenity")).ToList();
+            List<OsmNode> everything = new List<OsmNode>();
+            everything.AddRange(buildings);
+            everything.AddRange(shops);
+            everything.AddRange(amenities);
 
             for (int i = 0; i < 3; i++)
             {
                 Console.WriteLine($"Creating an actor {i + 1}...");
 
                 Point home = new Point(buildings[random.Next(0, buildings.Count()-1)].Coordinate);
-                Actor actor = new Actor(home.X, home.Y);
+                Actor actor = new Actor(home.X + offset, home.Y + offset);
 
                 Console.WriteLine($"Home at {home.X}, {home.Y}. Placing an actor here");
 
-                Point job = new Point(buildings[random.Next(0, buildings.Count() - 1)].Coordinate);
+                Point job = new Point(everything[random.Next(0, everything.Count() - 1)].Coordinate);
 
                 Console.WriteLine($"Job at {job.X}, {job.Y}");
 
