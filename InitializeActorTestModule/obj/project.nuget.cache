@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "EqNoVHKGbBSanV3zTgRrqyTbuhvfpTwEBLCN2ZSt+sL/fD3OUcQ7KUmg0mJwcTgcfNtuZsQwWSssDAPF5JlAmQ==",
+  "success": true,
+  "projectFilePath": "D:\\Black\\Repository\\osmlifeInitializationModule\\InitializeActorTestModule\\InitializeActorTestModule.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Black\\.nuget\\packages\\nettopologysuite\\2.0.0\\nettopologysuite.2.0.0.nupkg.sha512",
+    "C:\\Users\\Black\\.nuget\\packages\\nettopologysuite.features\\2.0.0\\nettopologysuite.features.2.0.0.nupkg.sha512",
+    "C:\\Users\\Black\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
+  ],
+  "logs": []
+}

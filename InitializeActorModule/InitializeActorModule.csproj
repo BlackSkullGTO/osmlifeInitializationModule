@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NetTopologySuite" Version="2.0.0" />
+    <PackageReference Include="NetTopologySuite.Features" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ActorModule">
+      <HintPath>..\ActorModule.dll</HintPath>
+    </Reference>
+    <Reference Include="CityDataExpansionModule">
+      <HintPath>..\CityDataExpansionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="NodaTime">
+      <HintPath>..\NodaTime.dll</HintPath>
+    </Reference>
+    <Reference Include="OSMLSGlobalLibrary">
+      <HintPath>..\OSMLSGlobalLibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

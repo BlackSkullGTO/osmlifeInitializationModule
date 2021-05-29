@@ -1,0 +1,4 @@
+D:\Black\Documents\Visual Studio\InitializeActorModule\InitializeActorModule\obj\Debug\netcoreapp3.1\InitializeActorModule.csprojAssemblyReference.cache
+D:\Black\Documents\Visual Studio\InitializeActorModule\InitializeActorModule\obj\Debug\netcoreapp3.1\InitializeActorModule.AssemblyInfoInputs.cache
+D:\Black\Documents\Visual Studio\InitializeActorModule\InitializeActorModule\obj\Debug\netcoreapp3.1\InitializeActorModule.AssemblyInfo.cs
+D:\Black\Documents\Visual Studio\InitializeActorModule\InitializeActorModule\obj\Debug\netcoreapp3.1\InitializeActorModule.csproj.CoreCompileInputs.cache
