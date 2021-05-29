@@ -72,7 +72,8 @@ namespace InitializeActorModule
                 // Добавляем актора в объекты карты
                 MapObjects.Add(actor);
 
-                Console.WriteLine($"Home at {actor.GetState<PlaceState>().Home.X}, {actor.GetState<PlaceState>().Home.Y}. Placing an actor at {actor.X}, {actor.Y}");
+                Console.WriteLine($"First favorite place at {actor.GetState<PlaceState>().FavoritePlaces[0].X}, {actor.GetState<PlaceState>().FavoritePlaces[0].Y}");
+                Console.WriteLine($"Home at {actor.GetState<PlaceState>().Home.X}, {actor.GetState<PlaceState>().Home.Y}");
 
             }
         }
@@ -181,7 +182,7 @@ namespace InitializeActorModule
 
         public PlaceState(Point home)
         {
-            Home = home;
+            Home = new Point(home.Coordinate);
             FavoritePlaces = new List<Place>();
         }
         public PlaceState(PlaceState state)
