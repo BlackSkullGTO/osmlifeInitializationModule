@@ -34,47 +34,50 @@ namespace InitializeActorModule
 
             for (int i = 0; i < 3; i++)
             {
+                SpecState specState = new SpecState()
+                {
+                    Health = random.Next(50, 100),
+                    Hunger = random.Next(50, 100),
+                    Mood = random.Next(50, 100),
+                    Fatigue = random.Next(50, 100),
+                    Money = random.Next(1000, 10000),
+                    Speed = random.NextDouble() * 2 + 2
+                };
+                PlaceState placeState = new PlaceState()
+                {
+                    Home = new Point(buildings[random.Next(0, buildings.Count() - 1)].Coordinate)
+                };
+                JobState jobState = new JobState()
+                {
+                    Job = new Point(everything[random.Next(0, everything.Count() - 1)].Coordinate)
+                };
                 Console.WriteLine($"Creating an actor {i + 1}...");
 
-                Point home = new Point(buildings[random.Next(0, buildings.Count()-1)].Coordinate);
-                Actor actor = new Actor(home.X + offset, home.Y + offset);
-                Console.WriteLine($"Home at {home.X}, {home.Y}. Placing an actor at {actor.X}, {actor.Y}");
+                Actor actor = new Actor(placeState.Home.X + offset, placeState.Home.Y + offset);
+                Console.WriteLine($"Home at {placeState.Home.X}, {placeState.Home.Y}. Placing an actor at {actor.X}, {actor.Y}");
 
-                Point job = new Point(everything[random.Next(0, everything.Count() - 1)].Coordinate);
+                jobState.AddJobTime(new TimeInterval(10, 30, 13, 00));
+                jobState.AddJobTime(new TimeInterval(15, 30, 18, 00));
 
-                Console.WriteLine($"Job at {job.X}, {job.Y}");
+                Console.WriteLine($"Job at {jobState.Job.X}, {jobState.Job.Y}");
 
-                SpecState specState = new SpecState();
-                Console.WriteLine($"Specs created. Hunger: {specState.Hunger}, Mood: {specState.Mood}, Fatigue: {specState.Fatigue}");
+                placeState.AddPlace(buildings[random.Next(0, buildings.Count() - 1)].Coordinate, "building", "value");
+                Console.WriteLine($"First favorite place at {placeState.FavoritePlaces[0].Coordinate.X}, {placeState.FavoritePlaces[0].Coordinate.Y}");
 
-                PlaceState placeState = new PlaceState(home);
+                placeState.AddPlace(shops[random.Next(0, shops.Count() - 1)].Coordinate, "shop", "value");
+                Console.WriteLine($"Second favorite place at {placeState.FavoritePlaces[1].Coordinate.X}, {placeState.FavoritePlaces[1].Coordinate.Y}");
 
-                JobState jobState = new JobState(job);
-
-                var place = buildings[random.Next(0, buildings.Count() - 1)];
-                placeState.AddPlace(place.Coordinate, "building", "value");
-                Console.WriteLine($"First favorite place at {place.Coordinate.X}, {place.Coordinate.Y}");
-
-                place = shops[random.Next(0, shops.Count() - 1)];
-                placeState.AddPlace(place.Coordinate, "shop", "value");
-                Console.WriteLine($"Second favorite place at {place.Coordinate.X}, {place.Coordinate.Y}");
-
-                place = amenities[random.Next(0, amenities.Count() - 1)];
-                placeState.AddPlace(place.Coordinate, "amenity", "value");
-                Console.WriteLine($"Third favorite place at {place.Coordinate.X}, {place.Coordinate.Y}");
+                placeState.AddPlace(amenities[random.Next(0, amenities.Count() - 1)].Coordinate, "amenity", "value");
+                Console.WriteLine($"Third favorite place at {placeState.FavoritePlaces[2].Coordinate.X}, {placeState.FavoritePlaces[2].Coordinate.Y}");
 
                 // Добавляем компонент состояния. Внутри компонент копируется (тем самым методом copy), так что в принципе
                 // можно всех акторов одним и тем же состоянием инициализировать
-                actor.AddState(specState);
-                actor.AddState(placeState);
                 actor.AddState(jobState);
+                actor.AddState(placeState);
+                actor.AddState(specState);
 
                 // Добавляем актора в объекты карты
                 MapObjects.Add(actor);
-
-                Console.WriteLine($"First favorite place at {actor.GetState<PlaceState>().FavoritePlaces[0].X}, {actor.GetState<PlaceState>().FavoritePlaces[0].Y}");
-                Console.WriteLine($"Home at {actor.GetState<PlaceState>().Home.X}, {actor.GetState<PlaceState>().Home.Y}");
-
             }
         }
         public override void Update(long elapsedMilliseconds)
@@ -103,13 +106,10 @@ namespace InitializeActorModule
 	{
         public readonly List<TimeInterval> JobTimes;
         public Point Job;
-        private Random random = new Random();
-        public JobState(Point job)
+
+        public JobState()
         {
-            Job = job;
             JobTimes = new List<TimeInterval>();
-            AddJobTime(new TimeInterval(10, 30, 13, 00));
-            AddJobTime(new TimeInterval(15, 30, 18, 00));
         }
         public JobState(JobState state)
         {
@@ -117,6 +117,8 @@ namespace InitializeActorModule
             if (state == null)
                 throw new ArgumentNullException("state");
 
+            Job = state.Job;
+            JobTimes = new List<TimeInterval>(state.JobTimes);
         }
 
         // Выполняет копирование компонента, необходим для соответствия интерфейсу
@@ -137,29 +139,20 @@ namespace InitializeActorModule
         public double Fatigue;
         public double Money;
         public double Speed;
-        private Random random = new Random();
 
-        public SpecState()
-        {
-            Health = random.Next(50, 100);
-            Hunger = random.Next(50, 100);
-            Mood = random.Next(50, 100);
-            Fatigue = random.Next(50, 100);
-            Money = random.Next(1000, 10000);
-            Speed = random.NextDouble() * 2 + 2;
-        }
+        public SpecState() { }
         public SpecState(SpecState state)
         {
             // Исключение, если копируемое состояние - null
             if (state == null)
                 throw new ArgumentNullException("state");
 
-            this.Health = state.Health;
-            this.Hunger = state.Hunger;
-            this.Mood = state.Mood;
-            this.Fatigue = state.Fatigue;
-            this.Money = state.Money;
-            this.Speed = state.Speed;
+            Health = state.Health;
+            Hunger = state.Hunger;
+            Mood = state.Mood;
+            Fatigue = state.Fatigue;
+            Money = state.Money;
+            Speed = state.Speed;
         }
 
         // Выполняет копирование компонента, необходим для соответствия интерфейсу
@@ -180,9 +173,8 @@ namespace InitializeActorModule
         public Point Home;
         public readonly List<Place> FavoritePlaces;
 
-        public PlaceState(Point home)
+        public PlaceState()
         {
-            Home = new Point(home.Coordinate);
             FavoritePlaces = new List<Place>();
         }
         public PlaceState(PlaceState state)
@@ -191,6 +183,8 @@ namespace InitializeActorModule
             if (state == null)
                 throw new ArgumentNullException("state");
 
+            Home = state.Home;
+            FavoritePlaces = new List<Place>(state.FavoritePlaces);
         }
 
         // Выполняет копирование компонента, необходим для соответствия интерфейсу
