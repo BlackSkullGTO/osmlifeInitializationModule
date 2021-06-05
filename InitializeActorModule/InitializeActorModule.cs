@@ -48,7 +48,7 @@ namespace InitializeActorModule
                 placeState.AddPlace(buildings[4].Coordinate, "building", "value");
                 Console.WriteLine($"Favorite place at {placeState.FavoritePlaces[0].Coordinate.X}, {placeState.FavoritePlaces[0].Coordinate.Y}");
 
-                placeState.AddPlace(shops[4].Coordinate, "shop", "value");
+                placeState.AddPlace(shops[1].Coordinate, "shop", "value");
                 Console.WriteLine($"Favorite place at {placeState.FavoritePlaces[1].Coordinate.X}, {placeState.FavoritePlaces[1].Coordinate.Y}");
 
                 placeState.AddPlace(amenities[4].Coordinate, "amenity", "value");
