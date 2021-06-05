@@ -84,6 +84,8 @@ namespace InitializeActorModule
                 jobState.AddJobTime(new TimeInterval(20, 00, 20, 30));
 
                 actor.AddState(specState);
+
+                Console.WriteLine($"Satiety is {actor.GetState<SpecState>().Satiety}, first job interval is {jobState.JobTimes[0].ToString()}");
             }
         }
         public override void Update(long elapsedMilliseconds)
