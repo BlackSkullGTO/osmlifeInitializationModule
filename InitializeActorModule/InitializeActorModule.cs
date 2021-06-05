@@ -80,11 +80,8 @@ namespace InitializeActorModule
                 };
                 JobState jobState = actor.GetState<JobState>();
 
-                jobState.AddJobTime(new TimeInterval(10, 00, 11, 00));
-                jobState.AddJobTime(new TimeInterval(12, 00, 13, 00));
-                jobState.AddJobTime(new TimeInterval(14, 00, 15, 00));
-                jobState.AddJobTime(new TimeInterval(16, 00, 17, 00));
-                jobState.AddJobTime(new TimeInterval(18, 00, 19, 00));
+                jobState.AddJobTime(new TimeInterval(19, 00, 19, 30));
+                jobState.AddJobTime(new TimeInterval(20, 00, 20, 30));
 
                 actor.AddState(specState);
             }
