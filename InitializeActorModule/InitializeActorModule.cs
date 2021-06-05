@@ -45,8 +45,14 @@ namespace InitializeActorModule
 
                 Console.WriteLine($"Job at {jobState.Job.X}, {jobState.Job.Y}");
 
-                placeState.AddPlace(shops[i].Coordinate, "shop", "value");
+                placeState.AddPlace(buildings[4].Coordinate, "building", "value");
                 Console.WriteLine($"Favorite place at {placeState.FavoritePlaces[0].Coordinate.X}, {placeState.FavoritePlaces[0].Coordinate.Y}");
+
+                placeState.AddPlace(shops[4].Coordinate, "shop", "value");
+                Console.WriteLine($"Favorite place at {placeState.FavoritePlaces[1].Coordinate.X}, {placeState.FavoritePlaces[1].Coordinate.Y}");
+
+                placeState.AddPlace(amenities[4].Coordinate, "amenity", "value");
+                Console.WriteLine($"Favorite place at {placeState.FavoritePlaces[2].Coordinate.X}, {placeState.FavoritePlaces[2].Coordinate.Y}");
 
                 actor.AddState(jobState);
                 actor.AddState(placeState);
