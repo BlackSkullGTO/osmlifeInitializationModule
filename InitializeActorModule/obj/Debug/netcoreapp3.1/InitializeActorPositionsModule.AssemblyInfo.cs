@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("InitializeActorTestModule")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("InitializeActorPositionsModule")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("InitializeActorTestModule")]
-[assembly: System.Reflection.AssemblyTitleAttribute("InitializeActorTestModule")]
+[assembly: System.Reflection.AssemblyProductAttribute("InitializeActorPositionsModule")]
+[assembly: System.Reflection.AssemblyTitleAttribute("InitializeActorPositionsModule")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Создано классом WriteCodeFragment MSBuild.
