@@ -2,3 +2,17 @@ D:\Black\Documents\Visual Studio\InitializeActorModule\InitializeActorModule\obj
 D:\Black\Documents\Visual Studio\InitializeActorModule\InitializeActorModule\obj\Debug\netcoreapp3.1\InitializeActorModule.AssemblyInfoInputs.cache
 D:\Black\Documents\Visual Studio\InitializeActorModule\InitializeActorModule\obj\Debug\netcoreapp3.1\InitializeActorModule.AssemblyInfo.cs
 D:\Black\Documents\Visual Studio\InitializeActorModule\InitializeActorModule\obj\Debug\netcoreapp3.1\InitializeActorModule.csproj.CoreCompileInputs.cache
+D:\Black\Repository\osmlifeInitializationModule\InitializeActorModule\bin\Debug\netcoreapp3.1\InitializeActorModule.deps.json
+D:\Black\Repository\osmlifeInitializationModule\InitializeActorModule\bin\Debug\netcoreapp3.1\InitializeActorModule.dll
+D:\Black\Repository\osmlifeInitializationModule\InitializeActorModule\bin\Debug\netcoreapp3.1\InitializeActorModule.pdb
+D:\Black\Repository\osmlifeInitializationModule\InitializeActorModule\bin\Debug\netcoreapp3.1\ActorModule.dll
+D:\Black\Repository\osmlifeInitializationModule\InitializeActorModule\bin\Debug\netcoreapp3.1\CityDataExpansionModule.dll
+D:\Black\Repository\osmlifeInitializationModule\InitializeActorModule\bin\Debug\netcoreapp3.1\NodaTime.dll
+D:\Black\Repository\osmlifeInitializationModule\InitializeActorModule\bin\Debug\netcoreapp3.1\OSMLSGlobalLibrary.dll
+D:\Black\Repository\osmlifeInitializationModule\InitializeActorModule\obj\Debug\netcoreapp3.1\InitializeActorModule.csprojAssemblyReference.cache
+D:\Black\Repository\osmlifeInitializationModule\InitializeActorModule\obj\Debug\netcoreapp3.1\InitializeActorModule.AssemblyInfoInputs.cache
+D:\Black\Repository\osmlifeInitializationModule\InitializeActorModule\obj\Debug\netcoreapp3.1\InitializeActorModule.AssemblyInfo.cs
+D:\Black\Repository\osmlifeInitializationModule\InitializeActorModule\obj\Debug\netcoreapp3.1\InitializeActorModule.csproj.CoreCompileInputs.cache
+D:\Black\Repository\osmlifeInitializationModule\InitializeActorModule\obj\Debug\netcoreapp3.1\InitializeActorModule.csproj.CopyComplete
+D:\Black\Repository\osmlifeInitializationModule\InitializeActorModule\obj\Debug\netcoreapp3.1\InitializeActorModule.dll
+D:\Black\Repository\osmlifeInitializationModule\InitializeActorModule\obj\Debug\netcoreapp3.1\InitializeActorModule.pdb

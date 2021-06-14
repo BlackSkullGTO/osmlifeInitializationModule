@@ -20,45 +20,109 @@ namespace InitializeActorModule
     {
         protected override void Initialize()
         {
-            List<OsmClosedWay> buildings = MapObjects.GetAll<OsmClosedWay>().Where(x => x.Tags.ContainsKey("building")).ToList();
-            List<OsmClosedWay> shops = MapObjects.GetAll<OsmClosedWay>().Where(x => x.Tags.ContainsKey("shop")).ToList();
-            List<OsmClosedWay> amenities = MapObjects.GetAll<OsmClosedWay>().Where(x => x.Tags.ContainsKey("amenity")).ToList();
+            //List<OsmClosedWay> buildings = MapObjects.GetAll<OsmClosedWay>().Where(x => x.Tags.ContainsKey("building")).ToList();
+            //List<OsmNode> shops = MapObjects.GetAll<OsmNode>().Where(x => x.Tags.ContainsKey("shop")).ToList();
+            //List<OsmNode> amenities = MapObjects.GetAll<OsmNode>().Where(x => x.Tags.ContainsKey("amenity")).ToList();
             //List<OsmClosedWay> everything = new List<OsmClosedWay>();
             //everything.AddRange(buildings);
             //everything.AddRange(shops);
             //everything.AddRange(amenities);
 
-            for (int i = 0; i < 3; i++)
+
+            PlaceState placeState = new PlaceState()
             {
-                PlaceState placeState = new PlaceState()
-                {
-                    Home = new Point(buildings[i].Coordinate)
-                };
-                JobState jobState = new JobState()
-                {
-                    Job = new Point(amenities[i].Coordinate)
-                };
-                Console.WriteLine($"Creating an actor {i + 1}...");
+                Home = new Point(new Coordinate(4172236, 7511796))
+            };
 
-                Actor actor = new Actor(placeState.Home.X + 100, placeState.Home.Y + 100);
-                Console.WriteLine($"Home at {placeState.Home.X}, {placeState.Home.Y}. Placing an actor at {actor.X}, {actor.Y}");
+            JobState jobState = new JobState()
+            {
+                Job = new Point(new Coordinate(4172939, 7512088))
+            };
+            Console.WriteLine($"Creating an actor {1}...");
 
-                Console.WriteLine($"Job at {jobState.Job.X}, {jobState.Job.Y}");
+            Actor actor = new Actor(placeState.Home.X + 100, placeState.Home.Y + 100);
 
-                placeState.AddPlace(buildings[4].Coordinate, "building", "value");
-                Console.WriteLine($"Favorite place at {placeState.FavoritePlaces[0].Coordinate.X}, {placeState.FavoritePlaces[0].Coordinate.Y}");
+            Console.WriteLine($"Home at {placeState.Home.X}, {placeState.Home.Y}. Placing an actor at {actor.X}, {actor.Y}");
 
-                placeState.AddPlace(shops[1].Coordinate, "shop", "value");
-                Console.WriteLine($"Favorite place at {placeState.FavoritePlaces[1].Coordinate.X}, {placeState.FavoritePlaces[1].Coordinate.Y}");
+            Console.WriteLine($"Job at {jobState.Job.X}, {jobState.Job.Y}");
 
-                placeState.AddPlace(amenities[4].Coordinate, "amenity", "value");
-                Console.WriteLine($"Favorite place at {placeState.FavoritePlaces[2].Coordinate.X}, {placeState.FavoritePlaces[2].Coordinate.Y}");
+            placeState.AddPlace(new Coordinate(4172797, 7511340), "building", "value");
+            Console.WriteLine($"Favorite place at {placeState.FavoritePlaces[0].Coordinate.X}, {placeState.FavoritePlaces[0].Coordinate.Y}");
 
-                actor.AddState(jobState);
-                actor.AddState(placeState);
+            placeState.AddPlace(new Coordinate(4174100, 7511664), "shop", "value");
+            Console.WriteLine($"Favorite place at {placeState.FavoritePlaces[1].Coordinate.X}, {placeState.FavoritePlaces[1].Coordinate.Y}");
 
-                MapObjects.Add(actor);
-            }
+            placeState.AddPlace(new Coordinate(4172672, 7510798), "amenity", "value");
+            Console.WriteLine($"Favorite place at {placeState.FavoritePlaces[2].Coordinate.X}, {placeState.FavoritePlaces[2].Coordinate.Y}");
+
+            actor.AddState(jobState);
+            actor.AddState(placeState);
+
+            MapObjects.Add(actor);
+            //////////////////////////////////////////////////////
+            /*
+            placeState = new PlaceState()
+            {
+                Home = new Point(new Coordinate(4173211, 7511938))
+            };
+
+            jobState = new JobState()
+            {
+                Job = new Point(new Coordinate(4172939, 7512088))
+            };
+            Console.WriteLine($"Creating an actor {2}...");
+
+            actor = new Actor(placeState.Home.X + 100, placeState.Home.Y + 100);
+
+            Console.WriteLine($"Home at {placeState.Home.X}, {placeState.Home.Y}. Placing an actor at {actor.X}, {actor.Y}");
+
+            Console.WriteLine($"Job at {jobState.Job.X}, {jobState.Job.Y}");
+
+            placeState.AddPlace(new Coordinate(4172797, 7511340), "building", "value");
+            Console.WriteLine($"Favorite place at {placeState.FavoritePlaces[0].Coordinate.X}, {placeState.FavoritePlaces[0].Coordinate.Y}");
+
+            placeState.AddPlace(new Coordinate(4174100, 7511664), "shop", "value");
+            Console.WriteLine($"Favorite place at {placeState.FavoritePlaces[1].Coordinate.X}, {placeState.FavoritePlaces[1].Coordinate.Y}");
+
+            placeState.AddPlace(new Coordinate(4172672, 7510798), "amenity", "value");
+            Console.WriteLine($"Favorite place at {placeState.FavoritePlaces[2].Coordinate.X}, {placeState.FavoritePlaces[2].Coordinate.Y}");
+
+            actor.AddState(jobState);
+            actor.AddState(placeState);
+
+            MapObjects.Add(actor);
+            //////////////////////////////////////////////////////
+            
+            placeState = new PlaceState()
+            {
+                Home = new Point(new Coordinate(4173800, 7511408))
+            };
+
+            jobState = new JobState()
+            {
+                Job = new Point(new Coordinate(4172939, 7512088))
+            };
+            Console.WriteLine($"Creating an actor {3}...");
+
+            actor = new Actor(placeState.Home.X + 100, placeState.Home.Y + 100);
+
+            Console.WriteLine($"Home at {placeState.Home.X}, {placeState.Home.Y}. Placing an actor at {actor.X}, {actor.Y}");
+
+            Console.WriteLine($"Job at {jobState.Job.X}, {jobState.Job.Y}");
+
+            placeState.AddPlace(new Coordinate(4172797, 7511340), "building", "value");
+            Console.WriteLine($"Favorite place at {placeState.FavoritePlaces[0].Coordinate.X}, {placeState.FavoritePlaces[0].Coordinate.Y}");
+
+            placeState.AddPlace(new Coordinate(4174100, 7511664), "shop", "value");
+            Console.WriteLine($"Favorite place at {placeState.FavoritePlaces[1].Coordinate.X}, {placeState.FavoritePlaces[1].Coordinate.Y}");
+
+            placeState.AddPlace(new Coordinate(4172672, 7510798), "amenity", "value");
+            Console.WriteLine($"Favorite place at {placeState.FavoritePlaces[2].Coordinate.X}, {placeState.FavoritePlaces[2].Coordinate.Y}");
+
+            actor.AddState(jobState);
+            actor.AddState(placeState);
+
+            MapObjects.Add(actor);*/
         }
         public override void Update(long elapsedMilliseconds)
         {
@@ -86,8 +150,8 @@ namespace InitializeActorModule
                 };
                 JobState jobState = actor.GetState<JobState>();
 
-                jobState.AddJobTime(new TimeInterval(19, 00, 19, 30));
-                jobState.AddJobTime(new TimeInterval(20, 00, 20, 30));
+                jobState.AddJobTime(new TimeInterval(15, 00, 15, 30));
+                jobState.AddJobTime(new TimeInterval(16, 00, 20, 30));
 
                 actor.AddState(specState);
 
